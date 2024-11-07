@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be Mine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffcccb;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff66b2;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+
+        .heart {
+            font-size: 4em;
+            color: #ff66b2;
+            margin: 30px 0;
+        }
+
+        .button {
+            background-color: #ff66b2;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #ff3385;
+        }
+
+        .response-message {
+            font-size: 1.5em;
+            margin-top: 30px;
+            color: #ff66b2;
+        }
+
+        /* Rose animation styles */
+        .rose {
+            display: none;
+            font-size: 5em;
+            animation: showRose 2s ease-in-out forwards;
+            margin-top: 20px;
+        }
+
+        @keyframes showRose {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Will You Be Mine, Saniya?</h1>
+    <p>Dear Saniya,</p>
+    <p>I've been thinking a lot lately, and I just want you to know that you've made my life brighter in so many ways.</p>
+    <p>Every moment spent with you is a treasure, and I want to spend more moments with you, making memories.</p>
+    <p>So, here's my question...</p>
+
+    <div class="heart">❤️</div>
+
+    <p><strong>Will you be mine?</strong></p>
+
+    <button class="button" onclick="submitResponse('Yes')">Yes! I will!</button>
+    <button class="button" onclick="submitResponse('No')">Sorry, No</button>
+
+    <div id="response" class="response-message"></div>
+    
+    <!-- Rose animation element -->
+    <div id="rose" class="rose">🌹</div>
+
+    <script>
+        function submitResponse(answer) {
+            var responseMessage = document.getElementById('response');
+            var rose = document.getElementById('rose');
+            
+            // Reset the rose animation each time a response is given
+            rose.style.display = 'none';
+            void rose.offsetWidth; // Trigger reflow to restart animation
+
+            if (answer === 'Yes') {
+                responseMessage.innerHTML = "Yay! You said Yes! 💖 I'm so happy!";
+                rose.style.display = 'inline-block';  // Show rose animation
+            } else {
+                responseMessage.innerHTML = "Oh no! 😢 Maybe next time...";
+            }
+        }
+    </script>
+
+</body>
+</html>
